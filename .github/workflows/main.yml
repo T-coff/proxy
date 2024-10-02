@@ -23,7 +23,7 @@ jobs:
       with:
        python-version: '3.10'
     - name: require
-      run: pip install -r requirements.txt && pip install requests
+      run: pip install -r requirements.txt 
     - name: get-ips
       run: curl -o ./data/all.txt https://raw.githubusercontent.com/Noctiro/getproxy/refs/heads/master/file/all.txt
     - name: download 
