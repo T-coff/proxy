@@ -3,7 +3,7 @@
 @Filename	:	🐍proxy.py
 @Created 	:	🐋2024/09/29  18:50
 @Updated	:	🐳2024/09/29  18:50
-@Author 		:	📧goonhope@gmail.com; 🚀Teddy️; 📍Zhuhai
+@Author 	:	📧goonhope@gmail.com; 🚀Teddy️; 📍Zhuhai
 @Function	:	🎯 指定地区代理获取，默认china
 @Process 	:	🌊 curl -> all.txt -> filter -> china.json
 @WitNote	:	👀备注
