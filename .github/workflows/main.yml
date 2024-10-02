@@ -22,12 +22,12 @@ jobs:
       uses: actions/setup-python@master
       with:
        python-version: '3.10'
-    # - name: require
-    #   run: pip install -r requirements.txt 
+    - name: require
+      run: pip install -r requirements.txt 
     - name: get-ips
       run: curl -o ./data/all.txt https://raw.githubusercontent.com/Noctiro/getproxy/refs/heads/master/file/all.txt
-    # - name: download 
-    #   run: python proxy.py
+    - name: download 
+      run: python proxy.py
     - name: Commit files
       run: |
         git config --local user.email "goonhope@gmail.com"
