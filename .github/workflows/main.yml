@@ -4,7 +4,7 @@ on:
   # push:
   workflow_dispatch:
   schedule:
-    - cron: "0 12 * * *"
+    - cron: "0 2 * * *"
 
 env: 
   l: git commit -m "Update `date -d '8 hour' '+%Y/%m/%d %H:%M:%S'`" -a
