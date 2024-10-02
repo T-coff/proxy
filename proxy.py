@@ -15,7 +15,7 @@ from require import fdir, tsleep,fetch,config,filed, err
 class Proxy:
     """代理"""
     def __init__(self,c='china',*args,**kwargs):
-        self.country, self.k = c, "https stock4 stock5".split()
+        self.country, self.k = c, "https socks4 socks5".split()
         super().__init__(*args,**kwargs)
         self.hold, self.url = [], "https://raw.githubusercontent.com/Noctiro/getproxy/refs/heads/master/file/all.txt"
         self.i, self.q = dict.fromkeys(self.k,0), "qurey country".split()
