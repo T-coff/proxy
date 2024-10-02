@@ -80,4 +80,4 @@ def filed(file, content="", enc="utf-8"):
     """文件读写操作"""
     mode = "w" if content else "r"
     with open(file, mode, encoding=enc) as of:
-        return of.write(content) if content else of.read().replace('socks','stock').splitlines()
+        return of.write(content) if content else of.read().splitlines()
