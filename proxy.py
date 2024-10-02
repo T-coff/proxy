@@ -39,7 +39,7 @@ class Proxy:
     def go(self,n=100):
         """获取ip"""
         s = filed(fdir('all.txt'))
-        hold = {k: [i for i in s if k in i and i.count(':') == 2] for k in self.k}
+        hold = {k: [i for i in s if i.split(':')[0].strip() == k and i.count(':') == 2] for k in self.k}
         ips = [x for i in hold.values() for x in i[:n]]
         for url in ips:
             self.single(url)
