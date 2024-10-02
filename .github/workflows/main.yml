@@ -1,0 +1,41 @@
+name: proxy
+
+on:
+  # push:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 12 * * *"
+
+env: 
+  l: git commit -m "Update `date -d '8 hour' '+%Y/%m/%d %H:%M:%S'`" -a
+  lrm: find -name "*.xlsx" -delete #|xargs rm -f
+  w: git commit -m "Update $((get-Date).addHours(8).toString("yyyy/MM/dd HH:mm:ss"))" -a  
+  wrm: del "*.xlsx" /s /q
+  
+jobs:
+  proxy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: pull
+      uses: actions/checkout@v4
+    - name: Setup python
+      uses: actions/setup-python@master
+      with:
+       python-version: '3.10'
+    - name: require
+      run: pip install -r requirements.txt && pip install requests
+    - name: get-ips
+      run: curl -o ./data/all.txt https://raw.githubusercontent.com/Noctiro/getproxy/refs/heads/master/file/all.txt
+    - name: download 
+      run: python proxy.py
+    - name: Commit files
+      run: |
+        git config --local user.email "goonhope@gmail.com"
+        git config --local user.name "goonhope"
+        git add -A
+        ${{runner.os == 'Linux' && env.l || env.w}}
+    - name: Push back
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{secrets.GITHUB_TOKEN }}
+        branch: main 
